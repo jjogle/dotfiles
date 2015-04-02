@@ -11,7 +11,7 @@ alias glg='gl --graph --branches'
 alias glm="gl master.."
 
 alias g{='echo -n "Name this stash (optional): "; read name; if [[ -n $name ]]; then git stash save -u "$name"; else git stash -u; fi'
-alias g{p='echo -n "Name this stash (optional): "; read name; if [[ -n $name ]]; then git stash save -p -u "$name"; else git stash -u; fi'
+alias g{p='echo -n "Name this stash (optional): "; read name; if [[ -n $name ]]; then git stash save -p -u "$name"; else git stash -p -u; fi'
 alias g}='git stash pop'
 alias g}b='git stash branch'
 
@@ -80,14 +80,15 @@ alias gbaum='git branch -v -a --no-merged master'
 alias gbdm='git branch --merged | grep -v "*" |  grep -ve "^\s*master$" | xargs -n 1 git branch -d'
 gbrdm() {
   local upstream="origin"
+  git remote prune $upstream
   if git branch -r --merged | grep -v 'master$' | grep -ve "$(current_git_branch)\$" | grep "$upstream/"; then
     echo
     echo -n "Delete listed branches from $upstream? (y/N) "
     local yes_or_no
     read yes_or_no
     if [ "$yes_or_no" == "y" ]; then
-      git branch -r --merged | grep -v 'master$' | grep -ve "$(current_git_branch)\$" | grep "$upstream/" | sed -e "s/$upstream\\///" | xargs -n 100 git push origin --delete
-      git remote prune origin
+      git branch -r --merged | grep -v 'master$' | grep -ve "$(current_git_branch)\$" | grep "$upstream/" | sed -e "s/$upstream\\///" | xargs -n 100 git push $upstream --delete
+      git remote prune $upstream
     fi
   else
     echo "Nothing to delete"
