@@ -47,6 +47,7 @@ alias cwip='cucumber --tags @wip'
 
 alias be='bundle exec'
 alias bi='bundle install'
+alias bil='bundle install --local'
 alias bu='bundle update'
 alias bo='bundle outdated'
 
