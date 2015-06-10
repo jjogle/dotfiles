@@ -1,6 +1,6 @@
 # Returns the first command that exists, or exit status 1.
 #
-#  EDITOR=`first_of "atom --wait" "mate -w" "nano -w" vi`
+# EDITOR=`first_of "vi -w atom --wait" "mate -w" "nano -w" vi`
 first_of() {
   if [ -n "$1" ]; then
     local arg=$1

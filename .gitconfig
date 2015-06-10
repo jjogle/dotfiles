@@ -1,3 +1,13 @@
+# START GENERATED
+[core]
+  excludesfile = ~/.gitignore
+[branch]
+  autosetuprebase = always
+[push]
+  default = simple
+[color]
+  ui = true
+# END GENERATED
 [user]
 	name = Josh Ogle
 	email = jogle@changehealthcare.com
