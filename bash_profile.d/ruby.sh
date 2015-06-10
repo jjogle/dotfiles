@@ -50,6 +50,7 @@ alias bi='bundle install'
 alias bil='bundle install --local'
 alias bu='bundle update'
 alias bo='bundle outdated'
+alias prake= 'RAILS_ENV=production rake'
 
 
 # decent Ruby options for faster local development
