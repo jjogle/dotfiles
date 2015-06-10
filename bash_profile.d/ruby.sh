@@ -43,6 +43,7 @@ alias sdbc='script_rails dbconsole -p'
 
 alias r='rake'
 alias rs='rake spec'
+alias pr='RAILS_ENV=production rake'
 alias cwip='cucumber --tags @wip'
 
 alias be='bundle exec'
@@ -50,7 +51,6 @@ alias bi='bundle install'
 alias bil='bundle install --local'
 alias bu='bundle update'
 alias bo='bundle outdated'
-alias prake= 'RAILS_ENV=production rake'
 
 
 # decent Ruby options for faster local development
